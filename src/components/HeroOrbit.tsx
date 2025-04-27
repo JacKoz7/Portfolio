@@ -1,4 +1,3 @@
-import { transform } from "next/dist/build/swc";
 import React, { PropsWithChildren } from "react";
 
 function HeroOrbit({
@@ -10,7 +9,7 @@ function HeroOrbit({
     <div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div
-          className=""
+          className="flex items-start justify-start"
           style={{
             transform: `rotate(${rotation}deg)`,
             height: `${size}px`,
