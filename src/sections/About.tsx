@@ -9,6 +9,12 @@ import CSSicon from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
 import TypescriptIcon from "@/assets/icons/typescript.svg";
 import DockerIcon from "@/assets/icons/docker.svg";
+import githubIcon from "@/assets/icons/github.svg";
+import mongoIcon from "@/assets/icons/mongodb.svg";
+import awsIcon from "@/assets/icons/aws.svg";
+import tailwindIcon from "@/assets/icons/tailwind.svg";
+import expressIcon from "@/assets/icons/express.svg";
+
 import mapImage from "@/assets/images/Lublin.jpeg";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
@@ -40,6 +46,26 @@ const toolboxItems = [
   {
     title: "Docker",
     iconType: DockerIcon,
+  },
+  {
+    title: "Github",
+    iconType: githubIcon,
+  },
+  {
+    title: "MongoDB",
+    iconType: mongoIcon,
+  },
+  {
+    title: "AWS",
+    iconType: awsIcon,
+  },
+  {
+    title: "TailwindCSS",
+    iconType: tailwindIcon,
+  },
+  {
+    title: "ExpressJS",
+    iconType: expressIcon,
   },
 ];
 
@@ -92,7 +118,7 @@ const hobbies = [
 export const AboutSection = () => {
   const constraintRef = useRef(null);
   return (
-    <div className="py-20 lg:py-28">
+    <div className="py-20 lg:py-28" id="AboutSection">
       <div className="container">
         <SectionHeader
           eyebrow="About me"
@@ -120,12 +146,12 @@ export const AboutSection = () => {
               <ToolboxItems
                 items={toolboxItems}
                 className=""
-                itemsWrapperClassName="animate-move-left [animation-duration:30s]"
+                itemsWrapperClassName="animate-move-left [animation-duration:45s]"
               />
               <ToolboxItems
                 items={toolboxItems}
                 className="mt-6"
-                itemsWrapperClassName="animate-move-right [animation-duration:15s]"
+                itemsWrapperClassName="animate-move-right [animation-duration:25s]"
               />
             </Card>
           </div>
@@ -140,12 +166,12 @@ export const AboutSection = () => {
                 {hobbies.map((hobby) => (
                   <motion.div
                     key={hobby.title}
-                    className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-emerald-300 to-sky-400 rounded-full py-1.5 absolute"
+                    className="inline-flex items-center gap-2 px-6 bg-gradient-to-r from-indigo-700 to-purple-600 rounded-full py-1.5 absolute"
                     style={{ left: hobby.left, top: hobby.top }}
                     drag
-                    dragConstraints={constraintRef }
+                    dragConstraints={constraintRef}
                   >
-                    <span className="font-medium text-gray-950">
+                    <span className="font-medium text-white">
                       {hobby.title}
                     </span>
                     <span>{hobby.emoji}</span>
@@ -160,10 +186,10 @@ export const AboutSection = () => {
                 className="h-full w-full object-cover object-left-top"
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 rounded-full  after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-20 animate-ping [animation-duration:2s]">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-700 to-purple-600 -z-20 animate-ping [animation-duration:2s]">
                   {" "}
                 </div>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-emerald-300 to-sky-400 -z-10">
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-700 to-purple-600 -z-10">
                   {" "}
                 </div>
                 <Image
