@@ -1,4 +1,4 @@
-import memojiImage from "@/assets/images/memoji-computer.png";
+import Jacek from "@/assets/images/Jacek1.png";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import grainImage from "@/assets/images/grain.jpg";
@@ -114,8 +114,8 @@ export const HeroSection = () => {
       <div className="container relative z-10">
         <div className="flex flex-col items-center">
           <Image
-            src={memojiImage}
-            className="size-[100px]"
+            src={Jacek}
+            className="h-[130px] w-[100px]"
             alt="My handsome face"
           />
           <div className="bg-gray-950 border border-gray-800 py-1.5 px-4 inline-flex items-center gap-4 rounded-lg">
