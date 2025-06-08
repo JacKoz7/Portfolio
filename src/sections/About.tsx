@@ -132,7 +132,7 @@ export const AboutSection = () => {
                 description="• 3rd-year CS student hungry for tech experience"
               />
               <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image src={LaptopMemoji} alt="laptop memoji" />
+                <Image src={LaptopMemoji} alt="laptop memoji" unoptimized={true}/>
               </div>
             </Card>
 
@@ -183,6 +183,7 @@ export const AboutSection = () => {
                 src={mapImage}
                 alt="map"
                 className="h-full w-full object-cover object-left-top"
+                unoptimized={true}
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 rounded-full  after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-700 to-purple-600 -z-20 animate-ping [animation-duration:2s]">
@@ -195,6 +196,7 @@ export const AboutSection = () => {
                   src={smileMemoji}
                   alt="smiling memoji"
                   className="size-12"
+                  unoptimized={true}
                 />
               </div>
             </Card>

@@ -118,6 +118,7 @@ export const HeroSection = () => {
               src={Jacek}
               className="h-[140px] w-[140px] rounded-full object-cover"
               alt="My handsome face"
+              unoptimized={true}
             />
           </div>
           <div className="bg-gray-950 border border-gray-800 py-1.5 px-4 inline-flex items-center gap-4 rounded-lg">
