@@ -19,13 +19,14 @@ export const ContactSection = () => {
                 Let&apos;s create something amazing together
               </h2>
               <p className="text-sm md:text-base mt-2">
-                Ready to bring your next project to life? Let&apos;s connect and
-                discuss how I can help you achieve your goals.
+                Ready to turn your vision into reality? I&apos;m here to collaborate
+                and create something extraordinary. Let&apos;s discuss how we can
+                bring your ideas to life.
               </p>
             </div>
             <div className="relative z-20">
-              <Link 
-                href="mailto:jackkoz999@gmail.com" 
+              <Link
+                href="mailto:jackkoz999@gmail.com"
                 className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900 hover:bg-gray-700 transition-colors"
               >
                 <span className="font-semibold">Contact Me</span>

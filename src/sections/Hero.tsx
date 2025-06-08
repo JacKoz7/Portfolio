@@ -1,4 +1,4 @@
-import Jacek from "@/assets/images/Jacek1.png";
+import Jacek from "@/assets/images/Jacek2noBG.png";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import grainImage from "@/assets/images/grain.jpg";
@@ -113,11 +113,13 @@ export const HeroSection = () => {
       </div>
       <div className="container relative z-10">
         <div className="flex flex-col items-center">
-          <Image
-            src={Jacek}
-            className="h-[130px] w-[100px]"
-            alt="My handsome face"
-          />
+          <div className="relative mb-3 -mt-10 h-[148px] w-[148px] rounded-full bg-transparent p-1 shadow-[0_0_10px_rgba(168,85,247,0.6)]">
+            <Image
+              src={Jacek}
+              className="h-[140px] w-[140px] rounded-full object-cover"
+              alt="My handsome face"
+            />
+          </div>
           <div className="bg-gray-950 border border-gray-800 py-1.5 px-4 inline-flex items-center gap-4 rounded-lg">
             <div className="bg-green-500 size-2.5 rounded full relative">
               <div className="bg-green-500 absolute inset-0 animate-ping-large rounded-full"></div>
@@ -129,12 +131,12 @@ export const HeroSection = () => {
         </div>
         <div className="max-w-lg mx-auto">
           <h1 className="font-serif text-3xl md:text-5xl text-center mt-8 tracking-wide">
-            Building Exceptional User Experiences
+            Shaping ideas into interactive realities
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
-            I&apos;m currently diving deep into the world of software development,
-            constantly expanding my skillset across fullstack, cloud, and
-            database technologies.
+            I build digital solutions that not only work but feel right. With
+            focus on fullstack and cloud-native tech, I turn complexity into
+            clarity - one commit at a time.
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4 relative z-20">

@@ -1,7 +1,6 @@
 "use client";
 import SectionHeader from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
-import bookImage from "@/assets/images/book-cover.png";
 import Image from "next/image";
 import JavascriptIcon from "@/assets/icons/square-js.svg";
 import HTMLicon from "@/assets/icons/html5.svg";
@@ -14,7 +13,7 @@ import mongoIcon from "@/assets/icons/mongodb.svg";
 import awsIcon from "@/assets/icons/aws.svg";
 import tailwindIcon from "@/assets/icons/tailwind.svg";
 import expressIcon from "@/assets/icons/express.svg";
-
+import LaptopMemoji from "@/assets/images/memoji-computer.png"
 import mapImage from "@/assets/images/Lublin.jpeg";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
@@ -129,11 +128,11 @@ export const AboutSection = () => {
           <div className="grid grid-cols-1 gap-8 md:grid-cols-5 lg:grid-cols-3">
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
-                title="My Reads"
-                description="Explore the books shaping my perspactives."
+                title="Who am I?"
+                description="• 3rd-year CS student hungry for tech experience"
               />
               <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image src={bookImage} alt="book cover" />
+                <Image src={LaptopMemoji} alt="laptop memoji" />
               </div>
             </Card>
 

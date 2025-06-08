@@ -14,8 +14,8 @@ const footerLinks = [
     href: "https://www.instagram.com/jacek_k7?igsh=bzl4c3ZpZ2F4dDhk&utm_source=qr",
   },
   {
-    title: "X",
-    href: "https://x.com/JacKoz77",
+    title: "Github",
+    href: "https://github.com/JacKoz7",
   },
 ];
 

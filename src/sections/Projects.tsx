@@ -1,5 +1,5 @@
 import MainHotelPage from "@/assets/images/MainHotelPage.png";
-import GreenPost from "@/assets/images/GreenPost.png";
+import CopColorCode from "@/assets/images/CopColorCode.png";
 import eShelf from "@/assets/images/eShelf.png";
 import EasySpeak from "@/assets/images/EasySpeak.png";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
@@ -23,15 +23,15 @@ const portfolioProjects = [
   },
   {
     company: "Jacek Kozłowski",
-    year: "2024",
-    title: "GreenPost",
+    year: "2025",
+    title: "CopColorCode",
     results: [
-      { title: "Full-stack social network React & Node.js" },
-      { title: "Based on REST post management system" },
+      { title: "Fullstack analysis system (React & Express)" },
+      { title: "Data integration from two API sources" },
       { title: "Dockerized app with MySQL database" },
     ],
-    link: "https://github.com/JacKoz7/GreenPost",
-    image: GreenPost,
+    link: "https://github.com/JacKoz7/CopColorCode",
+    image: CopColorCode,
   },
   {
     company: "Jacek Kozłowski",
