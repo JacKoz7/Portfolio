@@ -10,6 +10,9 @@
     "export": "next build && next export"
   },
   "dependencies": {
+    "@babel/core": "^7.27.4",
+    "@babel/preset-env": "^7.27.2",
+    "@babel/preset-react": "^7.27.1",
     "@svgr/webpack": "^8.1.0",
     "framer-motion": "^11.3.21",
     "next": "14.2.5",
