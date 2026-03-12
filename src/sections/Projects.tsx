@@ -1,14 +1,14 @@
 "use client";
-import MainHotelPage from "@/assets/images/MainHotelPage.png";
-import CopColorCode from "@/assets/images/CopColorCode.png";
-import EasySpeak from "@/assets/images/EasySpeak.png";
-import diagnoScreen1 from "@/assets/images/diagno1.png";
-import diagnoScreen2 from "@/assets/images/diagno2.png";
-import diagnoScreen3 from "@/assets/images/diagno3.png";
+import MainHotelPage from "@/assets/images/MainHotelPage.webp";
+import CopColorCode from "@/assets/images/CopColorCode.webp";
+import diagnoScreen1 from "@/assets/images/diagno1.webp";
+import diagnoScreen2 from "@/assets/images/diagno2.webp";
+import diagnoScreen3 from "@/assets/images/diagno3.webp";
 import AndroidIcon from "@/assets/icons/android.svg";
 import AppleIcon from "@/assets/icons/apple.svg";
 import CheckCircleIcon from "@/assets/icons/check-circle.svg";
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
+import CodeIcon from "@/assets/icons/laptop_code.svg";
 import Image, { StaticImageData } from "next/image";
 import SectionHeader from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
@@ -22,6 +22,7 @@ type Project = {
   results: { title: string }[];
   type: "web" | "mobile";
   link?: string;
+  codeLink?: string;
   links?: { android: string; ios: string };
   image?: StaticImageData;
   images?: StaticImageData[];
@@ -72,7 +73,7 @@ const portfolioProjects: Project[] = [
       },
     ],
     type: "web",
-    link: "https://github.com/JacKoz7/CopColorCode",
+    codeLink: "https://github.com/JacKoz7/CopColorCode",
     image: CopColorCode,
   },
   {
@@ -95,6 +96,7 @@ const portfolioProjects: Project[] = [
     ],
     type: "web",
     link: "https://jackoz7.github.io/Hotel-Website/",
+    codeLink: "https://github.com/JacKoz7/Hotel-Website",
     image: MainHotelPage,
   },
 ];
@@ -106,7 +108,7 @@ export const ProjectsSection = () => {
     if (toastMessage) {
       const timer = setTimeout(() => {
         setToastMessage(null);
-      }, 3000);
+      }, 1500);
       return () => clearTimeout(timer);
     }
   }, [toastMessage]);
@@ -123,10 +125,9 @@ export const ProjectsSection = () => {
 
   return (
     <section className="pb-16 lg:py-24" id="ProjectsSection">
-      {/* Toast Notification - CENTERED */}
       <div
         className={twMerge(
-          "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-900 border border-white/20 px-6 py-3 rounded-full text-sm font-medium shadow-2xl transition-all duration-300 pointer-events-none",
+          "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-gray-900 border border-white/20 px-6 py-3 rounded-full text-sm font-medium shadow-2xl transition-all duration-150 pointer-events-none",
           toastMessage
             ? "opacity-100 translate-y-0"
             : "opacity-0 -translate-y-4",
@@ -224,28 +225,44 @@ export const ProjectsSection = () => {
                           </a>
                         </div>
                       ) : (
-                        <a href={project.link}>
-                          <button
-                            className={twMerge(
-                              "hover:shadow-lg transition-all duration-300 text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 md:w-auto px-6",
-                              isDiagno6
-                                ? "bg-gradient-to-r from-[#54CFB2] to-[#3bb197] hover:from-[#3bb197] hover:to-[#54CFB2]"
-                                : "bg-gradient-to-r from-indigo-700 to-purple-600 hover:from-indigo-600 hover:to-purple-500",
-                            )}
-                          >
-                            <span>See in action</span>
-                            <ArrowUpRight className="size-4" />
-                          </button>
-                        </a>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                          {/* Opcjonalny przycisk "See in action" */}
+                          {project.link && (
+                            <a href={project.link} className="w-full sm:w-auto">
+                              <button
+                                className={twMerge(
+                                  "hover:shadow-lg transition-all duration-300 text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 md:w-auto px-6",
+                                  isDiagno6
+                                    ? "bg-gradient-to-r from-[#54CFB2] to-[#3bb197] hover:from-[#3bb197] hover:to-[#54CFB2]"
+                                    : "bg-gradient-to-r from-indigo-700 to-purple-600 hover:from-indigo-600 hover:to-purple-500",
+                                )}
+                              >
+                                <span>See in action</span>
+                                <ArrowUpRight className="size-4" />
+                              </button>
+                            </a>
+                          )}
+
+                          {/* Opcjonalny przycisk "Code" - Zawsze jednolity styl (ciemnoszary) */}
+                          {project.codeLink && (
+                            <a
+                              href={project.codeLink}
+                              className="w-full sm:w-auto"
+                            >
+                              <button className="bg-gray-800 hover:bg-gray-700 border border-white/20 hover:shadow-lg transition-all duration-300 text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 md:w-auto px-6">
+                                <span>See code</span>
+                                <CodeIcon className="size-5" />
+                              </button>
+                            </a>
+                          )}
+                        </div>
                       )}
                     </div>
                   </div>
 
-                  {/* Right Column: Images */}
                   <div className="relative flex-1 w-full lg:h-full mt-4 lg:mt-0 flex flex-col justify-center pb-8 lg:pb-0">
                     {project.type === "mobile" && project.images ? (
                       <div className="relative w-full h-[250px] md:h-[300px] lg:h-full flex justify-center items-center -mt-4 lg:-mt-8">
-                        {/* GLOW EFFECT FOR DIAGNO6 - REDUCED VERTICALLY EVEN MORE */}
                         <div
                           className={twMerge(
                             "absolute inset-x-0 lg:-inset-x-8 top-[35%] bottom-[35%] bg-[#54CFB2] blur-xl lg:blur-3xl rounded-[1.2rem] -z-10 transition-opacity duration-300",
@@ -256,34 +273,32 @@ export const ProjectsSection = () => {
                         />
 
                         <Image
+                          priority
                           src={project.images[0]}
                           alt="Screen 1"
-                          unoptimized={true}
                           className="absolute w-[85px] sm:w-[105px] md:w-[125px] lg:w-[140px] -rotate-12 -translate-x-18 sm:-translate-x-24 z-0 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
                         />
                         <Image
+                          priority
                           src={project.images[1]}
                           alt="Screen 2"
-                          unoptimized={true}
                           className="absolute w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] z-10 rounded-[1.2rem] shadow-2xl drop-shadow-2xl transition-transform duration-500 hover:-translate-y-4"
                         />
                         <Image
+                          priority
                           src={project.images[2]}
                           alt="Screen 3"
-                          unoptimized={true}
                           className="absolute w-[85px] sm:w-[105px] md:w-[125px] lg:w-[140px] rotate-12 translate-x-18 sm:translate-x-24 z-0 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
                         />
                       </div>
                     ) : (
                       <div className="relative w-full flex justify-center items-center lg:h-[80%] my-auto">
-                        {/* GLOW EFFECT FOR WEB PROJECTS - REDUCED VERTICALLY EVEN MORE */}
                         <div className="absolute inset-x-0 lg:-inset-x-10 top-[35%] bottom-[35%] bg-purple-600 blur-xl lg:blur-3xl opacity-25 lg:opacity-45 rounded-3xl -z-10" />
 
-                        {/* THE SMALLER, CENTERED IMAGE */}
                         <Image
+                          priority
                           src={project.image!}
                           alt={project.title}
-                          unoptimized={true}
                           className="w-full h-auto max-h-[250px] lg:max-h-full object-contain rounded-xl md:rounded-2xl shadow-2xl ring-2 ring-white/10"
                         />
                       </div>

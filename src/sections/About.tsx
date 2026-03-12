@@ -16,9 +16,9 @@ import ExpoIcon from "@/assets/icons/expo.svg";
 import NextIcon from "@/assets/icons/next.svg";
 import FlutterIcon from "@/assets/icons/flutter.svg";
 
-import LaptopMemoji from "@/assets/images/memoji-computer.png";
-import mapImage from "@/assets/images/Lublin.jpeg";
-import smileMemoji from "@/assets/images/memoji-smile.png";
+import LaptopMemoji from "@/assets/images/memoji-computer.webp";
+import mapImage from "@/assets/images/Lublin.webp";
+import smileMemoji from "@/assets/images/memoji-smile.webp";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems";
 import { motion } from "framer-motion";
@@ -53,23 +53,23 @@ const toolboxItems = [
     title: "Flutter",
     iconType: FlutterIcon,
   },
-    {
+  {
     title: "Python",
     iconType: PythonIcon,
   },
-    {
+  {
     title: "Jupyter",
     iconType: JupyterIcon,
   },
-    {
+  {
     title: "Expo",
     iconType: ExpoIcon,
   },
-    {
+  {
     title: "PostgreSQL",
     iconType: PostgresIcon,
   },
-    {
+  {
     title: "Next.js",
     iconType: NextIcon,
   },
@@ -139,11 +139,7 @@ export const AboutSection = () => {
                 description="• Engineer – 4th-year Computer Science student."
               />
               <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image
-                  src={LaptopMemoji}
-                  alt="laptop memoji"
-                  unoptimized={true}
-                />
+                <Image priority src={LaptopMemoji} alt="laptop memoji" />
               </div>
             </Card>
 
@@ -191,10 +187,10 @@ export const AboutSection = () => {
             </Card>
             <Card className="h-[320px] p-0 relative md:col-span-2 lg:col-span-1">
               <Image
+                priority
                 src={mapImage}
                 alt="map"
                 className="h-full w-full object-cover object-left-top"
-                unoptimized={true}
               />
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-12 rounded-full  after:content-[''] after:absolute after:inset-0 after:outline after:outline-2 after:-outline-offset-2 after:rounded-full after:outline-gray-950/30">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-700 to-purple-600 -z-20 animate-ping [animation-duration:2s]">
@@ -204,10 +200,10 @@ export const AboutSection = () => {
                   {" "}
                 </div>
                 <Image
+                  priority
                   src={smileMemoji}
                   alt="smiling memoji"
                   className="size-12"
-                  unoptimized={true}
                 />
               </div>
             </Card>

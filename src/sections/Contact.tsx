@@ -1,5 +1,5 @@
 import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
-import GrainImage from "@/assets/images/grain.jpg";
+import GrainImage from "@/assets/images/grain.webp";
 import Link from "next/link";
 
 export const ContactSection = () => {

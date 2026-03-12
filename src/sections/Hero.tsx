@@ -1,7 +1,7 @@
-import Jacek from "@/assets/images/jacek.png";
+import Jacek from "@/assets/images/jacek.webp";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
-import grainImage from "@/assets/images/grain.jpg";
+import grainImage from "@/assets/images/grain.webp";
 import StarIcon from "@/assets/icons/star.svg";
 import SparkleIcon from "@/assets/icons/sparkle.svg";
 import HeroOrbit from "@/components/HeroOrbit";
@@ -114,11 +114,11 @@ export const HeroSection = () => {
       <div className="container relative z-10">
         <div className="flex flex-col items-center">
           <div className="relative mb-3 -mt-10 h-[148px] w-[148px] rounded-full bg-transparent p-1 shadow-[0_0_10px_rgba(168,85,247,0.6)]">
-            <Image
+            <Image 
+              priority 
               src={Jacek}
               className="h-[140px] w-[140px] rounded-full object-cover"
               alt="My handsome face"
-              unoptimized={true}
             />
           </div>
           <div className="bg-gray-950 border border-gray-800 py-1.5 px-4 inline-flex items-center gap-4 rounded-lg">
@@ -136,8 +136,8 @@ export const HeroSection = () => {
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
             I build digital solutions that not only work but feel right. With
-            focus on mobile development and AI engineering, I turn complexity into
-            clarity - one commit at a time.
+            focus on mobile development and AI engineering, I turn complexity
+            into clarity - one commit at a time.
           </p>
         </div>
         <div className="flex flex-col md:flex-row justify-center items-center mt-8 gap-4 relative z-20">

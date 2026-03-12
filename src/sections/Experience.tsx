@@ -2,9 +2,9 @@ import SectionHeader from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 import Image from "next/image";
 import { Fragment } from "react";
-import memojiAvatar1 from "@/assets/images/memoji-avatar-1.png";
-import memojiAvatar2 from "@/assets/images/memoji-avatar-4.png";
-import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
+import memojiAvatar1 from "@/assets/images/memoji-avatar-1.webp";
+import memojiAvatar2 from "@/assets/images/memoji-avatar-4.webp";
+import memojiAvatar3 from "@/assets/images/memoji-avatar-3.webp";
 
 const MobilePhoneIcon = ({ className }: { className?: string }) => (
   <svg
@@ -147,11 +147,10 @@ export const ExperienceSection = () => {
 
                       <div className="flex gap-4 items-center mb-6 pr-12">
                         <div className="size-14 bg-gradient-to-r from-indigo-700 to-purple-600 inline-flex items-center justify-center rounded-full flex-shrink-0 outline outline-2 outline-offset-2 outline-purple-500/30">
-                          <Image
+                          <Image priority
                             src={experience.avatar}
                             alt={experience.company}
                             className="max-h-full"
-                            unoptimized={true}
                           />
                         </div>
                         <div className="flex-1">
