@@ -3,17 +3,20 @@ import SectionHeader from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 import Image from "next/image";
 import JavascriptIcon from "@/assets/icons/square-js.svg";
-import HTMLicon from "@/assets/icons/html5.svg";
-import CSSicon from "@/assets/icons/css3.svg";
 import ReactIcon from "@/assets/icons/react.svg";
 import TypescriptIcon from "@/assets/icons/typescript.svg";
 import DockerIcon from "@/assets/icons/docker.svg";
 import githubIcon from "@/assets/icons/github.svg";
-import mongoIcon from "@/assets/icons/mongodb.svg";
-import awsIcon from "@/assets/icons/aws.svg";
-import tailwindIcon from "@/assets/icons/tailwind.svg";
-import expressIcon from "@/assets/icons/express.svg";
-import LaptopMemoji from "@/assets/images/memoji-computer.png"
+import ReactNativeIcon from "@/assets/icons/react-native.svg";
+
+import PostgresIcon from "@/assets/icons/postgres.svg";
+import PythonIcon from "@/assets/icons/python.svg";
+import JupyterIcon from "@/assets/icons/jupyter.svg";
+import ExpoIcon from "@/assets/icons/expo.svg";
+import NextIcon from "@/assets/icons/next.svg";
+import FlutterIcon from "@/assets/icons/flutter.svg";
+
+import LaptopMemoji from "@/assets/images/memoji-computer.png";
 import mapImage from "@/assets/images/Lublin.jpeg";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
@@ -25,14 +28,6 @@ const toolboxItems = [
   {
     title: "Javascript",
     iconType: JavascriptIcon,
-  },
-  {
-    title: "HTML5",
-    iconType: HTMLicon,
-  },
-  {
-    title: "CSS3",
-    iconType: CSSicon,
   },
   {
     title: "React",
@@ -47,24 +42,36 @@ const toolboxItems = [
     iconType: DockerIcon,
   },
   {
-    title: "Github",
+    title: "React Native",
+    iconType: ReactNativeIcon,
+  },
+  {
+    title: "Github & Git",
     iconType: githubIcon,
   },
   {
-    title: "MongoDB",
-    iconType: mongoIcon,
+    title: "Flutter",
+    iconType: FlutterIcon,
   },
-  {
-    title: "AWS",
-    iconType: awsIcon,
+    {
+    title: "Python",
+    iconType: PythonIcon,
   },
-  {
-    title: "TailwindCSS",
-    iconType: tailwindIcon,
+    {
+    title: "Jupyter",
+    iconType: JupyterIcon,
   },
-  {
-    title: "ExpressJS",
-    iconType: expressIcon,
+    {
+    title: "Expo",
+    iconType: ExpoIcon,
+  },
+    {
+    title: "PostgreSQL",
+    iconType: PostgresIcon,
+  },
+    {
+    title: "Next.js",
+    iconType: NextIcon,
   },
 ];
 
@@ -129,10 +136,14 @@ export const AboutSection = () => {
             <Card className="h-[320px] md:col-span-2 lg:col-span-1">
               <CardHeader
                 title="Who am I?"
-                description="• 3rd-year CS student hungry for tech experience"
+                description="• Engineer – 4th-year Computer Science student."
               />
               <div className="w-40 mx-auto mt-2 md:mt-0">
-                <Image src={LaptopMemoji} alt="laptop memoji" unoptimized={true}/>
+                <Image
+                  src={LaptopMemoji}
+                  alt="laptop memoji"
+                  unoptimized={true}
+                />
               </div>
             </Card>
 
