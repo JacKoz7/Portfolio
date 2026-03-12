@@ -3,7 +3,7 @@ import { Card } from "@/components/Card";
 import Image from "next/image";
 import { Fragment } from "react";
 import memojiAvatar1 from "@/assets/images/memoji-avatar-1.png";
-import memojiAvatar2 from "@/assets/images/memoji-avatar-2.png";
+import memojiAvatar2 from "@/assets/images/memoji-avatar-4.png";
 import memojiAvatar3 from "@/assets/images/memoji-avatar-3.png";
 
 const MobilePhoneIcon = ({ className }: { className?: string }) => (
@@ -81,7 +81,7 @@ const experiences = [
     company: "diagno6.",
     period: "Jul 2025 – Present",
     description:
-      "Building a cross-platform mobile application available on both iOS and Android using React Native.",
+      "Single-handedly building a cross-platform mobile application available on both iOS and Android using React Native.",
     responsibilities: [
       "Implementing screens, features, and integrating user management with Firebase.",
       "Preparing test builds for TestFlight and production releases for Google Play and App Store.",
