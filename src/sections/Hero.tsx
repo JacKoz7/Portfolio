@@ -1,4 +1,4 @@
-import Jacek from "@/assets/images/Jacek2noBG.png";
+import Jacek from "@/assets/images/jacek.png";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
 import grainImage from "@/assets/images/grain.jpg";
@@ -136,7 +136,7 @@ export const HeroSection = () => {
           </h1>
           <p className="mt-4 text-center text-white/60 md:text-lg">
             I build digital solutions that not only work but feel right. With
-            focus on fullstack and cloud-native tech, I turn complexity into
+            focus on mobile development and AI engineering, I turn complexity into
             clarity - one commit at a time.
           </p>
         </div>
