@@ -157,7 +157,6 @@ export const ProjectsSection = () => {
                 }}
               >
                 <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 h-full">
-                  {/* Left Column: Text */}
                   <div className="flex flex-col justify-start lg:justify-center pb-8 lg:pb-16">
                     <div
                       className={twMerge(
@@ -171,9 +170,17 @@ export const ProjectsSection = () => {
                       <span>&bull;</span>
                       <span>{project.year}</span>
                     </div>
+
                     <h3 className="font-serif text-2xl mt-2 md:mt-5 md:text-4xl">
-                      {project.title}
+                      {isDiagno6 ? (
+                        <>
+                          diagno<span className="text-[#54CFB2]">6</span>.
+                        </>
+                      ) : (
+                        project.title
+                      )}
                     </h3>
+
                     <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
 
                     <ul className="flex flex-col gap-4 mt-4 md:mt-5 max-h-[160px] lg:max-h-none overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20">
@@ -185,7 +192,7 @@ export const ProjectsSection = () => {
                           <CheckCircleIcon
                             className={twMerge(
                               "size-5 md:size-6 flex-shrink-0",
-                              isDiagno6 ? "text-[#54CFB2]" : "text-white/50",
+                              isDiagno6 ? "text-[#54CFB2]" : "text-purple-500",
                             )}
                           />
                           <span>{result.title}</span>
