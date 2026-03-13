@@ -49,7 +49,7 @@ const portfolioProjects: Project[] = [
     ],
     type: "mobile",
     links: {
-      android: "#",
+      android: "https://play.google.com/store/apps/details?id=com.healix.android",
       ios: "#",
     },
     images: [diagnoScreen1, diagnoScreen2, diagnoScreen3],
@@ -157,7 +157,7 @@ export const ProjectsSection = () => {
                 }}
               >
                 <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-16 h-full">
-                  <div className="flex flex-col justify-start lg:justify-center pb-8 lg:pb-16">
+                  <div className="flex flex-col justify-start lg:justify-center pb-4 lg:pb-16">
                     <div
                       className={twMerge(
                         "inline-flex gap-2 font-bold uppercase tracking-widest text-sm text-transparent bg-clip-text",
@@ -183,7 +183,7 @@ export const ProjectsSection = () => {
 
                     <hr className="border-t-2 border-white/5 mt-4 md:mt-5" />
 
-                    <ul className="flex flex-col gap-4 mt-4 md:mt-5 max-h-[160px] lg:max-h-none overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-white/20">
+                    <ul className="flex flex-col gap-4 mt-4 md:mt-5">
                       {project.results.map((result, i) => (
                         <li
                           key={i}
@@ -200,12 +200,13 @@ export const ProjectsSection = () => {
                       ))}
                     </ul>
 
-                    <div className="mt-8 mb-8 lg:mb-0">
+                    <div className="mt-8 mb-4 lg:mb-0">
                       {project.type === "mobile" && project.links ? (
                         <div className="flex flex-col sm:flex-row gap-4">
                           <a
                             href={project.links.android}
-                            onClick={(e) => handleStoreClick(e, "Android")}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="w-full sm:w-auto flex-1 cursor-pointer"
                           >
                             <button
@@ -233,9 +234,13 @@ export const ProjectsSection = () => {
                         </div>
                       ) : (
                         <div className="flex flex-col sm:flex-row gap-4">
-                          {/* Opcjonalny przycisk "See in action" */}
                           {project.link && (
-                            <a href={project.link} className="w-full sm:w-auto">
+                            <a 
+                              href={project.link} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              className="w-full sm:w-auto"
+                            >
                               <button
                                 className={twMerge(
                                   "hover:shadow-lg transition-all duration-300 text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 md:w-auto px-6",
@@ -250,10 +255,11 @@ export const ProjectsSection = () => {
                             </a>
                           )}
 
-                          {/* Opcjonalny przycisk "Code" - Zawsze jednolity styl (ciemnoszary) */}
                           {project.codeLink && (
                             <a
                               href={project.codeLink}
+                              target="_blank" 
+                              rel="noopener noreferrer" 
                               className="w-full sm:w-auto"
                             >
                               <button className="bg-gray-800 hover:bg-gray-700 border border-white/20 hover:shadow-lg transition-all duration-300 text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 md:w-auto px-6">
@@ -267,7 +273,7 @@ export const ProjectsSection = () => {
                     </div>
                   </div>
 
-                  <div className="relative flex-1 w-full lg:h-full mt-4 lg:mt-0 flex flex-col justify-center pb-8 lg:pb-0">
+                  <div className="relative flex-1 w-full lg:h-full mt-2 lg:mt-0 flex flex-col justify-end lg:justify-center pb-6 lg:pb-0">
                     {project.type === "mobile" && project.images ? (
                       <div className="relative w-full h-[250px] md:h-[300px] lg:h-full flex justify-center items-center -mt-4 lg:-mt-8">
                         <div
@@ -299,7 +305,7 @@ export const ProjectsSection = () => {
                         />
                       </div>
                     ) : (
-                      <div className="relative w-full flex justify-center items-center lg:h-[80%] my-auto">
+                      <div className="relative w-full flex justify-center items-end lg:items-center lg:h-[80%] mt-auto lg:my-auto">
                         <div className="absolute inset-x-0 lg:-inset-x-10 top-[35%] bottom-[35%] bg-purple-600 blur-xl lg:blur-3xl opacity-25 lg:opacity-45 rounded-3xl -z-10" />
 
                         <Image
