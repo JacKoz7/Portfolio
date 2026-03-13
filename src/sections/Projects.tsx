@@ -1,5 +1,7 @@
 "use client";
 import MainHotelPage from "@/assets/images/MainHotelPage.webp";
+import HotelPage2 from "@/assets/images/HotelPage2.webp";
+import HotelPage3 from "@/assets/images/HotelPage3.webp";
 import CopColorCode from "@/assets/images/CopColorCode.webp";
 import diagnoScreen1 from "@/assets/images/diagno1.webp";
 import diagnoScreen2 from "@/assets/images/diagno2.webp";
@@ -49,7 +51,8 @@ const portfolioProjects: Project[] = [
     ],
     type: "mobile",
     links: {
-      android: "https://play.google.com/store/apps/details?id=com.healix.android",
+      android:
+        "https://play.google.com/store/apps/details?id=com.healix.android",
       ios: "#",
     },
     images: [diagnoScreen1, diagnoScreen2, diagnoScreen3],
@@ -97,9 +100,80 @@ const portfolioProjects: Project[] = [
     type: "web",
     link: "https://jackoz7.github.io/Hotel-Website/",
     codeLink: "https://github.com/JacKoz7/Hotel-Website",
-    image: MainHotelPage,
+    images: [HotelPage3, HotelPage2, MainHotelPage],
   },
 ];
+
+// Sub-komponent dla efektu ułożonych kart WEB
+const WebImageStack = ({
+  images,
+  title,
+}: {
+  images: StaticImageData[];
+  title: string;
+}) => {
+  const [activeIndex, setActiveIndex] = useState(images.length - 1);
+  const imgCount = images.length;
+
+  return (
+    <div
+      className="relative w-full max-h-[250px] lg:max-h-full flex justify-center items-center"
+      onMouseLeave={() => setActiveIndex(images.length - 1)}
+    >
+      <Image
+        priority
+        src={images[0]}
+        alt="placeholder"
+        className="w-full h-auto opacity-0 pointer-events-none"
+      />
+
+      {images.map((img, i) => {
+        const isTop = i === activeIndex;
+        let baseTransform = "";
+
+        if (imgCount === 2) {
+          if (i === 0) {
+            baseTransform =
+              "-rotate-3 -translate-x-6 translate-y-4 lg:-translate-x-8 lg:translate-y-6";
+          } else {
+            baseTransform =
+              "rotate-2 translate-x-4 -translate-y-2 lg:translate-x-6 lg:-translate-y-4";
+          }
+        } else if (imgCount >= 3) {
+          if (i === 0) {
+            baseTransform =
+              "-rotate-6 -translate-x-8 translate-y-6 lg:-translate-x-12 lg:translate-y-10";
+          } else if (i === 1) {
+            baseTransform =
+              "rotate-3 translate-x-8 translate-y-2 lg:translate-x-12 lg:translate-y-4";
+          } else {
+            baseTransform =
+              "rotate-0 translate-x-0 -translate-y-4 lg:-translate-y-6";
+          }
+        }
+
+        const baseZIndex = i === 0 ? "z-0" : i === 1 ? "z-10" : "z-20";
+
+        return (
+          <Image
+            key={i}
+            priority
+            src={img}
+            alt={`${title} - widok ${i + 1}`}
+            className={twMerge(
+              "absolute inset-0 w-full h-auto object-contain rounded-xl md:rounded-2xl shadow-2xl ring-2 ring-white/10 transition-all duration-300 ease-out cursor-pointer",
+              baseTransform,
+              isTop
+                ? "z-30 scale-[1.05] opacity-100 drop-shadow-[0_20px_20px_rgba(0,0,0,0.8)]"
+                : `${baseZIndex} scale-95 opacity-40`,
+            )}
+            onMouseEnter={() => setActiveIndex(i)}
+          />
+        );
+      })}
+    </div>
+  );
+};
 
 export const ProjectsSection = () => {
   const [toastMessage, setToastMessage] = useState<string | null>(null);
@@ -147,6 +221,14 @@ export const ProjectsSection = () => {
         <div className="flex flex-col gap-20 mt-10 md:mt-20">
           {portfolioProjects.map((project, projectIndex) => {
             const isDiagno6 = project.company === "diagno6.";
+
+            const displayImages =
+              project.images && project.images.length > 0
+                ? project.images
+                : project.image
+                  ? [project.image]
+                  : [];
+            const imgCount = displayImages.length;
 
             return (
               <Card
@@ -235,10 +317,10 @@ export const ProjectsSection = () => {
                       ) : (
                         <div className="flex flex-col sm:flex-row gap-4">
                           {project.link && (
-                            <a 
-                              href={project.link} 
-                              target="_blank" 
-                              rel="noopener noreferrer" 
+                            <a
+                              href={project.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="w-full sm:w-auto"
                             >
                               <button
@@ -258,8 +340,8 @@ export const ProjectsSection = () => {
                           {project.codeLink && (
                             <a
                               href={project.codeLink}
-                              target="_blank" 
-                              rel="noopener noreferrer" 
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="w-full sm:w-auto"
                             >
                               <button className="bg-gray-800 hover:bg-gray-700 border border-white/20 hover:shadow-lg transition-all duration-300 text-white h-12 w-full rounded-xl font-semibold inline-flex items-center justify-center gap-2 md:w-auto px-6">
@@ -274,7 +356,7 @@ export const ProjectsSection = () => {
                   </div>
 
                   <div className="relative flex-1 w-full lg:h-full mt-2 lg:mt-0 flex flex-col justify-end lg:justify-center pb-6 lg:pb-0">
-                    {project.type === "mobile" && project.images ? (
+                    {project.type === "mobile" ? (
                       <div className="relative w-full h-[250px] md:h-[300px] lg:h-full flex justify-center items-center -mt-4 lg:-mt-8">
                         <div
                           className={twMerge(
@@ -285,35 +367,74 @@ export const ProjectsSection = () => {
                           )}
                         />
 
-                        <Image
-                          priority
-                          src={project.images[0]}
-                          alt="Screen 1"
-                          className="absolute w-[85px] sm:w-[105px] md:w-[125px] lg:w-[140px] -rotate-12 -translate-x-18 sm:-translate-x-24 z-0 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
-                        />
-                        <Image
-                          priority
-                          src={project.images[1]}
-                          alt="Screen 2"
-                          className="absolute w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] z-10 rounded-[1.2rem] shadow-2xl drop-shadow-2xl transition-transform duration-500 hover:-translate-y-4"
-                        />
-                        <Image
-                          priority
-                          src={project.images[2]}
-                          alt="Screen 3"
-                          className="absolute w-[85px] sm:w-[105px] md:w-[125px] lg:w-[140px] rotate-12 translate-x-18 sm:translate-x-24 z-0 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
-                        />
+                        {/* Wersja mobilna z czystym hoverem na oś Y */}
+                        {imgCount === 1 && (
+                          <Image
+                            priority
+                            src={displayImages[0]}
+                            alt="Mobile Screen"
+                            className="absolute w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] z-10 rounded-[1.2rem] shadow-2xl drop-shadow-2xl transition-transform duration-500 hover:-translate-y-4"
+                          />
+                        )}
+
+                        {imgCount === 2 && (
+                          <>
+                            <Image
+                              priority
+                              src={displayImages[0]}
+                              alt="Screen 1"
+                              className="absolute w-[95px] sm:w-[115px] md:w-[135px] lg:w-[150px] -rotate-6 -translate-x-10 sm:-translate-x-14 z-0 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
+                            />
+                            <Image
+                              priority
+                              src={displayImages[1]}
+                              alt="Screen 2"
+                              className="absolute w-[95px] sm:w-[115px] md:w-[135px] lg:w-[150px] rotate-6 translate-x-10 sm:translate-x-14 z-10 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
+                            />
+                          </>
+                        )}
+
+                        {imgCount >= 3 && (
+                          <>
+                            <Image
+                              priority
+                              src={displayImages[0]}
+                              alt="Screen 1"
+                              className="absolute w-[85px] sm:w-[105px] md:w-[125px] lg:w-[140px] -rotate-12 -translate-x-18 sm:-translate-x-24 z-0 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
+                            />
+                            <Image
+                              priority
+                              src={displayImages[1]}
+                              alt="Screen 2"
+                              className="absolute w-[100px] sm:w-[120px] md:w-[140px] lg:w-[160px] z-10 rounded-[1.2rem] shadow-2xl drop-shadow-2xl transition-transform duration-500 hover:-translate-y-4"
+                            />
+                            <Image
+                              priority
+                              src={displayImages[2]}
+                              alt="Screen 3"
+                              className="absolute w-[85px] sm:w-[105px] md:w-[125px] lg:w-[140px] rotate-12 translate-x-18 sm:translate-x-24 z-0 rounded-[1.2rem] shadow-xl drop-shadow-xl transition-transform duration-500 hover:-translate-y-4"
+                            />
+                          </>
+                        )}
                       </div>
                     ) : (
-                      <div className="relative w-full flex justify-center items-end lg:items-center lg:h-[80%] mt-auto lg:my-auto">
+                      // ZMIANA: Zamiast przylegać do dołu (items-end mt-auto), obraz zrówna się bliżej góry używając mt-8 i mb-auto dla urządzeń mobilnych
+                      <div className="relative w-full flex justify-center items-center lg:h-[80%] mt-8 md:mt-12 mb-auto lg:m-auto">
                         <div className="absolute inset-x-0 lg:-inset-x-10 top-[35%] bottom-[35%] bg-purple-600 blur-xl lg:blur-3xl opacity-25 lg:opacity-45 rounded-3xl -z-10" />
 
-                        <Image
-                          priority
-                          src={project.image!}
-                          alt={project.title}
-                          className="w-full h-auto max-h-[250px] lg:max-h-full object-contain rounded-xl md:rounded-2xl shadow-2xl ring-2 ring-white/10"
-                        />
+                        {imgCount === 1 ? (
+                          <Image
+                            priority
+                            src={displayImages[0]}
+                            alt={project.title}
+                            className="w-full h-auto max-h-[250px] lg:max-h-full object-contain rounded-xl md:rounded-2xl shadow-2xl ring-2 ring-white/10 transition-transform duration-500 hover:-translate-y-2 cursor-pointer"
+                          />
+                        ) : (
+                          <WebImageStack
+                            images={displayImages}
+                            title={project.title}
+                          />
+                        )}
                       </div>
                     )}
                   </div>
