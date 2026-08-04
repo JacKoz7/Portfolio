@@ -1,27 +1,43 @@
-export const Header = () => {
+import { Content, CV_HREF } from "@/lib/content";
+
+export const Header = ({
+  nav,
+  otherLang,
+  onToggle,
+}: {
+  nav: Content["nav"];
+  otherLang: string;
+  onToggle: () => void;
+}) => {
   return (
-    <div className="flex justify-center items-center fixed top-3 w-full z-50">
-      {" "}
-      {/* Increased z-index to 50 */}
-      <nav className="flex gap-1 p-1 border border-white/15 rounded-full bg-white/10 backdrop-blur-md">
-        {" "}
-        {/* Fixed typo p=0.5 to p-1, added backdrop-blur-md */}
-        <a href="#HeroSection" className="nav-item">
-          Home
+    <div className="sticky top-0 z-50 backdrop-blur-md bg-ink/80 border-b border-line">
+      <div className="container flex h-16 items-center justify-between gap-6">
+        <a href="#top" className="font-mono text-[15px] font-medium text-gold tracking-wide">
+          portfolio
         </a>
-        <a href="#ProjectsSection" className="nav-item">
-          Projects
-        </a>
-        <a href="#ExperienceSection" className="nav-item">
-          Experience
-        </a>
-        <a
-          href="#ContactSection"
-          className="nav-item bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900"
-        >
-          Contact
-        </a>
-      </nav>
+        <nav className="hidden md:flex items-center gap-6 font-mono text-[12.5px] tracking-wider">
+          <a href="#about" className="text-muted hover:text-cream transition-colors">{nav.about}</a>
+          <a href="#projects" className="text-muted hover:text-cream transition-colors">{nav.projects}</a>
+          <a href="#experience" className="text-muted hover:text-cream transition-colors">{nav.exp}</a>
+          <a href="#education" className="text-muted hover:text-cream transition-colors">{nav.edu}</a>
+          <a href="#contact" className="text-muted hover:text-cream transition-colors">{nav.contact}</a>
+        </nav>
+        <div className="flex items-center gap-3.5">
+          <button
+            onClick={onToggle}
+            className="font-mono text-xs tracking-widest text-gold border border-line-strong rounded-full px-3.5 py-1.5 hover:border-gold hover:bg-gold/10 transition-colors"
+          >
+            {otherLang}
+          </button>
+          <a
+            href={CV_HREF}
+            download
+            className="font-mono text-xs tracking-widest font-medium text-ink bg-gold rounded-full px-4 py-[7px] hover:bg-gold-light transition-all hover:-translate-y-px"
+          >
+            {nav.cv}
+          </a>
+        </div>
+      </div>
     </div>
   );
 };

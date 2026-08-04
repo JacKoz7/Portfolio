@@ -21,37 +21,40 @@ const config: Config = {
       },
     },
     extend: {
+      colors: {
+        ink: "#100f0d",
+        panel: "#131210",
+        card: "#161512",
+        cell: "#141310",
+        line: "#26241f",
+        "line-strong": "#3a362c",
+        cream: "#ece7dc",
+        muted: "#9a938a",
+        faint: "#5d574d",
+        gold: "#e8b64a",
+        "gold-light": "#f4d189",
+      },
       fontFamily: {
         sans: "var(--font-sans)",
         serif: "var(--font-serif)",
+        mono: "var(--font-mono)",
       },
       animation: {
-        "ping-large": "ping-large 1s ease-in-out infinite",
-        "move-left": "move-left 1s linear infinite",
-        "move-right": "move-right 1s linear infinite",
+        "fade-up": "fade-up 0.7s ease both",
+        glow: "glow-pulse 8s ease-in-out infinite",
       },
       keyframes: {
-        "ping-large": {
-          "75%, 100%": {
-            transform: "scale(3)",
-            opacity: "0",
-          },
+        "fade-up": {
+          "0%": { opacity: "0", transform: "translateY(18px)" },
+          "100%": { opacity: "1", transform: "none" },
         },
-        "move-left": {
-          "0%": {
-            transform: "TranslateX(0%)",
-          },
-          "100%": {
-            transform: "TranslateX(-50%)",
-          },
+        reveal: {
+          "0%": { opacity: "0", transform: "translateY(28px)" },
+          "100%": { opacity: "1", transform: "none" },
         },
-        "move-right": {
-          "0%": {
-            transform: "TranslateX(-50%)",
-          },
-          "100%": {
-            transform: "TranslateX(0%)",
-          },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
         },
       },
     },

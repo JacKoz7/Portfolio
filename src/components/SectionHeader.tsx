@@ -1,29 +1,21 @@
 import React from "react";
 
 function SectionHeader({
+  num,
   title,
-  eyebrow,
-  description,
+  children,
 }: {
+  num: string;
   title: string;
-  eyebrow: string;
-  description: string;
+  children?: React.ReactNode;
 }) {
   return (
-    <>
-      <div className="flex justify-center">
-        <p className="uppercase font-semibold tracking-widest bg-gradient-to-r from-indigo-700 to-purple-600 bg-clip-text text-transparent text-center">
-          {eyebrow}
-        </p>
-      </div>
-
-      <h2 className="font-serif text-3xl md:text-5xl text-center mt-6">
-        {title}
-      </h2>
-      <p className="text-center md:text-lg lg:text-xl text-white/60 mt-4 max-w-md mx-auto">
-        {description}
-      </p>
-    </>
+    <div className="flex items-baseline gap-4 mb-12">
+      <span className="font-mono text-[13px] text-gold">{num}</span>
+      <h2 className="font-serif text-3xl md:text-4xl">{title}</h2>
+      <div className="flex-1 h-px bg-line" />
+      {children}
+    </div>
   );
 }
 

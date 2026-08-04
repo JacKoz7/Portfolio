@@ -1,41 +1,42 @@
-import ArrowUpRight from "@/assets/icons/arrow-up-right.svg";
-import GrainImage from "@/assets/images/grain.webp";
-import Link from "next/link";
+import { Content, EMAIL, GITHUB, LINKEDIN, PHONE } from "@/lib/content";
 
-export const ContactSection = () => {
+export const ContactSection = ({ t }: { t: Content["contact"] }) => {
   return (
-    <div className="py-16 pt-12 lg:py-24 lg:pt-20" id="ContactSection">
-      <div className="container relative z-10">
-        <div className="bg-gradient-to-r from-indigo-700 to-purple-600 text-white py-8 px-10 rounded-3xl text-center md:text-left relative overflow-hidden">
-          <div
-            className="absolute inset-0 -z-10 opacity-5"
-            style={{
-              backgroundImage: `url(${GrainImage.src})`,
-            }}
-          ></div>
-          <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl">
-                Let&apos;s create something amazing together
-              </h2>
-              <p className="text-sm md:text-base mt-2">
-                Ready to turn your vision into reality? I&apos;m here to collaborate
-                and create something extraordinary. Let&apos;s discuss how we can
-                bring your ideas to life.
-              </p>
-            </div>
-            <div className="relative z-20">
-              <Link
-                href="mailto:jackkoz999@gmail.com"
-                className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900 hover:bg-gray-700 transition-colors"
-              >
-                <span className="font-semibold">Contact Me</span>
-                <ArrowUpRight className="size-4" />
-              </Link>
-            </div>
-          </div>
+    <section id="contact" className="relative overflow-hidden border-t border-line">
+      <div className="absolute -bottom-64 left-1/2 -translate-x-1/2 w-[720px] h-[520px] pointer-events-none animate-glow bg-[radial-gradient(circle,rgba(232,182,74,0.1)_0%,rgba(232,182,74,0)_65%)]" />
+      <div className="container reveal relative text-center py-24 lg:pt-[110px] lg:pb-24">
+        <p className="font-mono text-[12.5px] tracking-[0.18em] text-gold mb-6">{t.kicker}</p>
+        <h2 className="font-serif text-4xl md:text-5xl lg:text-[58px] leading-[1.1] mb-5">
+          {t.title1} <em className="text-gold">{t.titleEm}</em>
+        </h2>
+        <p className="text-muted text-[16.5px] max-w-[480px] mx-auto mb-10 leading-relaxed">{t.sub}</p>
+        <a
+          href={`mailto:${EMAIL}`}
+          className="font-mono text-lg md:text-[22px] text-gold border-b border-gold/50 pb-1 hover:text-gold-light transition-colors"
+        >
+          {EMAIL}
+        </a>
+        <div className="flex flex-wrap justify-center gap-7 mt-11 font-mono text-[12.5px] tracking-wider">
+          <a
+            href={GITHUB}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted hover:text-gold transition-colors"
+          >
+            GitHub ↗
+          </a>
+          <a
+            href={LINKEDIN}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted hover:text-gold transition-colors"
+          >
+            LinkedIn ↗
+          </a>
+          <span className="text-muted">{PHONE}</span>
+          <span className="text-faint">{t.location}</span>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
