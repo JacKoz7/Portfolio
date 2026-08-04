@@ -58,6 +58,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Reveal animations are JS-driven, so keep content visible without it */}
+        <noscript>
+          <style>{".reveal{opacity:1!important;transform:none!important}"}</style>
+        </noscript>
+      </head>
       <body
         className={twMerge(
           instrumentSans.variable,

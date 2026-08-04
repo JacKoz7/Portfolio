@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { content, Lang } from "@/lib/content";
+import { useScrollReveal } from "@/lib/useScrollReveal";
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
 import { AboutSection } from "@/sections/About";
@@ -24,6 +25,8 @@ export default function Home() {
     setLang(next);
     localStorage.setItem("lang", next);
   };
+
+  useScrollReveal(lang);
 
   const t = content[lang];
 

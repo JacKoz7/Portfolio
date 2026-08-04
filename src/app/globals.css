@@ -7,16 +7,36 @@
     @apply lg:max-w-[1180px];
   }
 
-  /* Scroll-driven reveal - graceful no-op in browsers without animation-timeline */
+  /* Scroll reveal - stays hidden until useScrollReveal marks it visible */
   .reveal {
-    animation: reveal 1ms linear both;
-    animation-timeline: view();
-    animation-range: entry 0% entry 35%;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
   }
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .animate-fade-up,
+  .animate-glow {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
 }
 
 ::selection {
