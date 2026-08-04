@@ -102,6 +102,7 @@ export const content: Record<Lang, Content> = {
         { n: "03", title: "Percipio", tags: "ESP32 · Next.js · Firebase · mmWave radar", desc: "End-to-end IoT room-awareness system: ESP32 firmware streams mmWave radar tracking, climate and RFID access data to Firestore in real time, visualised live in a Next.js dashboard with Telegram alerts.", mv: null, ml: null, link: "https://github.com/percipio-hq/percipio-web", link2: "https://github.com/percipio-hq/percipio-firmware" },
         { n: "04", title: "PetStayTion API", tags: "Next.js · PostgreSQL · Firebase · Docker", desc: "Backend for a pet-care services platform - user, pet and service-offer management. Fully documented with Swagger / OpenAPI and containerized with Docker.", mv: null, ml: null, link: "https://github.com/JacKoz7/PetStayTion-API" },
         { n: "05", title: "Hotel Website", tags: "HTML · CSS · JavaScript", desc: "A polished, responsive marketing site for a hotel - clean, dependency-free front-end craft.", mv: null, ml: null, link: "https://github.com/JacKoz7/Hotel-Website" },
+        { n: "06", title: "Portfolio", tags: "Next.js · TypeScript · Tailwind CSS", desc: "This site: a bilingual (EN/PL) portfolio built on the Next.js App Router, statically exported and deployed to GitHub Pages through a GitHub Actions pipeline.", mv: null, ml: null, link: "https://github.com/JacKoz7/Portfolio" },
       ],
     },
     exp: {
@@ -177,6 +178,7 @@ export const content: Record<Lang, Content> = {
         { n: "03", title: "Percipio", tags: "ESP32 · Next.js · Firebase · radar mmWave", desc: "System IoT monitorujący pomieszczenie end-to-end: firmware ESP32 przesyła w czasie rzeczywistym dane z radaru mmWave, czujników klimatu i RFID do Firestore, wizualizowane na żywo w dashboardzie Next.js z powiadomieniami Telegram.", mv: null, ml: null, link: "https://github.com/percipio-hq/percipio-web", link2: "https://github.com/percipio-hq/percipio-firmware" },
         { n: "04", title: "PetStayTion API", tags: "Next.js · PostgreSQL · Firebase · Docker", desc: "Backend platformy usług opieki nad zwierzętami - zarządzanie użytkownikami, zwierzętami i ofertami. W pełni udokumentowany w Swagger / OpenAPI, skonteneryzowany w Dockerze.", mv: null, ml: null, link: "https://github.com/JacKoz7/PetStayTion-API" },
         { n: "05", title: "Hotel Website", tags: "HTML · CSS · JavaScript", desc: "Dopracowana, responsywna strona marketingowa hotelu - czysty front-end bez zależności.", mv: null, ml: null, link: "https://github.com/JacKoz7/Hotel-Website" },
+        { n: "06", title: "Portfolio", tags: "Next.js · TypeScript · Tailwind CSS", desc: "Ta strona: dwujęzyczne (EN/PL) portfolio zbudowane na Next.js App Router, eksportowane statycznie i wdrażane na GitHub Pages przez pipeline w GitHub Actions.", mv: null, ml: null, link: "https://github.com/JacKoz7/Portfolio" },
       ],
     },
     exp: {

@@ -40,7 +40,7 @@ export const HeroSection = ({ t }: { t: Content["hero"] }) => {
         <div className="relative justify-self-center lg:justify-self-end animate-fade-up [animation-delay:150ms]">
           <div className="absolute top-[18px] left-[18px] -right-[18px] -bottom-[18px] border border-gold/45 pointer-events-none" />
           <Image
-            src="/portrait.jpg"
+            src="/portrait.webp"
             alt="Jacek Kozłowski"
             width={400}
             height={507}
