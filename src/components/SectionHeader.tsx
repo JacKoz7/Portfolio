@@ -12,8 +12,8 @@ function SectionHeader({
   return (
     <div className="reveal flex items-baseline gap-4 mb-12">
       <span className="font-mono text-[13px] text-gold">{num}</span>
-      <h2 className="font-serif text-3xl md:text-4xl">{title}</h2>
-      <div className="flex-1 h-px bg-line" />
+      <h2 className="font-serif text-3xl md:text-4xl leading-tight tracking-[-0.015em]">{title}</h2>
+      <div className="draw-line flex-1 h-px bg-line" />
       {children}
     </div>
   );

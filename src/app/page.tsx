@@ -16,14 +16,28 @@ export default function Home() {
   const [lang, setLang] = useState<Lang>("en");
 
   useEffect(() => {
+    // A language picked by hand wins; otherwise follow the browser's own
+    // preference list and fall back to English
     const saved = localStorage.getItem("lang");
-    if (LANGS.includes(saved as Lang)) setLang(saved as Lang);
+    const preferred = navigator.languages
+      .map((l) => l.slice(0, 2).toLowerCase())
+      .find((l) => LANGS.includes(l as Lang));
+    setLang(LANGS.includes(saved as Lang) ? (saved as Lang) : ((preferred as Lang) ?? "en"));
+
+    // iOS Safari only applies :active on touch when a touch listener exists
+    const noop = () => {};
+    document.addEventListener("touchstart", noop, { passive: true });
+    return () => document.removeEventListener("touchstart", noop);
   }, []);
 
   const changeLang = (next: Lang) => {
     setLang(next);
     localStorage.setItem("lang", next);
   };
+
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   useScrollReveal(lang);
 

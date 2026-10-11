@@ -1,22 +1,13 @@
 import type { Metadata } from "next";
-import { Instrument_Sans, Playfair_Display, IBM_Plex_Mono } from "next/font/google";
+import "./fonts.css";
 import "./globals.css";
-import { twMerge } from "tailwind-merge";
 
-const instrumentSans = Instrument_Sans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-serif",
-  weight: ["400", "500"],
-});
-const plexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "500"],
-});
+// Basic-latin files used above the fold; latin-ext loads on demand
+const PRELOAD_FONTS = [
+  "/fonts/instrument-sans-400-700-latin.woff2",
+  "/fonts/playfair-display-400-500-latin.woff2",
+  "/fonts/ibm-plex-mono-400-latin.woff2",
+];
 
 const siteUrl = "https://www.jacekkozlowski.com";
 const siteTitle = "Jacek Kozłowski Portfolio";
@@ -59,19 +50,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {PRELOAD_FONTS.map((href) => (
+          <link key={href} rel="preload" href={href} as="font" type="font/woff2" crossOrigin="anonymous" />
+        ))}
         {/* Reveal animations are JS-driven, so keep content visible without it */}
         <noscript>
           <style>{".reveal{opacity:1!important;transform:none!important}"}</style>
         </noscript>
       </head>
-      <body
-        className={twMerge(
-          instrumentSans.variable,
-          playfair.variable,
-          plexMono.variable,
-          "bg-ink text-cream antialiased font-sans"
-        )}
-      >
+      <body className="bg-ink text-cream antialiased font-sans">
         {children}
       </body>
     </html>

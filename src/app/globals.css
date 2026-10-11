@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --ease-spring: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 @layer utilities {
   .container {
     @apply lg:max-w-[1180px];
@@ -10,13 +14,90 @@
   /* Scroll reveal - stays hidden until useScrollReveal marks it visible */
   .reveal {
     opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(16px);
+    transition: opacity 0.8s var(--ease-spring), transform 0.8s var(--ease-spring);
   }
 
   .reveal.is-visible {
     opacity: 1;
     transform: none;
+  }
+
+  /* Section rule draws itself in once its header is revealed */
+  .reveal .draw-line {
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.4s var(--ease-spring) 0.15s;
+  }
+
+  .reveal.is-visible .draw-line {
+    transform: none;
+  }
+
+  /* Hero headline words materialise out of a blur, one after another */
+  .word {
+    display: inline-block;
+    animation: word-in 1.1s var(--ease-spring) both;
+  }
+
+  /* A soft light that follows the pointer inside a card */
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(
+      360px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(232, 182, 74, 0.09),
+      transparent 60%
+    );
+    opacity: 0;
+    transition: opacity 400ms ease;
+  }
+
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  /* Press feedback lands on pointer-down, not on release, and is quick */
+  .press {
+    transition: color 200ms ease, background-color 200ms ease, border-color 200ms ease,
+      transform 200ms var(--ease-spring);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .press:active {
+    transform: scale(0.97);
+    transition-duration: 200ms, 200ms, 200ms, 80ms;
+  }
+
+  /* Translucent chrome - content scrolls underneath instead of behind an opaque strip */
+  .material {
+    background-color: rgba(16, 15, 13, 0.72);
+    -webkit-backdrop-filter: blur(16px) saturate(160%);
+    backdrop-filter: blur(16px) saturate(160%);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.35em);
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
   }
 }
 
@@ -24,18 +105,51 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Reduced motion keeps the feedback but swaps movement for a gentle cross-fade */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
   }
 
-  .reveal,
-  .animate-fade-up,
-  .animate-glow {
-    opacity: 1;
+  .reveal {
+    transform: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .reveal .draw-line {
     transform: none;
     transition: none;
+  }
+
+  .animate-fade-up,
+  .word {
+    animation-name: fade-in;
+    animation-duration: 0.4s;
+  }
+
+  .animate-glow {
     animation: none;
+  }
+
+  .press:active {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .material {
+    background-color: #100f0d;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .material {
+    background-color: #100f0d;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+    border-color: #9a938a;
   }
 }
 

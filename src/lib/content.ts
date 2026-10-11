@@ -49,6 +49,9 @@ export interface Content {
     certs: { name: string; org: string; date: string }[];
     langsTitle: string;
     langs: string;
+    photoAlt: string;
+    photoCaption: string;
+    photoHint: string;
   };
   contact: { kicker: string; title1: string; titleEm: string; sub: string; location: string };
 }
@@ -123,6 +126,9 @@ export const content: Record<Lang, Content> = {
       ],
       langsTitle: "LANGUAGES",
       langs: "Polish - native · English - C1 · German - B1 · French - learning",
+      photoAlt: "Jacek Kozłowski holding his engineering thesis at Lublin University of Technology",
+      photoCaption: "BEng, done - Feb 2026",
+      photoHint: "DRAG ME",
     },
     contact: {
       kicker: "GET IN TOUCH",
@@ -195,6 +201,9 @@ export const content: Record<Lang, Content> = {
       ],
       langsTitle: "JĘZYKI",
       langs: "polski - ojczysty · angielski - C1 · niemiecki - B1 · francuski - w trakcie nauki",
+      photoAlt: "Jacek Kozłowski z pracą inżynierską na Politechnice Lubelskiej",
+      photoCaption: "Inżynier! - luty 2026",
+      photoHint: "PRZECIĄGNIJ",
     },
     contact: {
       kicker: "KONTAKT",
@@ -267,6 +276,9 @@ export const content: Record<Lang, Content> = {
       ],
       langsTitle: "LANGUES",
       langs: "polonais - langue maternelle · anglais - C1 · allemand - B1 · français - en cours d'apprentissage",
+      photoAlt: "Jacek Kozłowski avec son mémoire d'ingénieur à l'Université de technologie de Lublin",
+      photoCaption: "Ingénieur ! - févr. 2026",
+      photoHint: "FAIS-MOI GLISSER",
     },
     contact: {
       kicker: "CONTACT",

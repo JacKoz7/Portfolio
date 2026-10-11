@@ -16,7 +16,7 @@ export const ExperienceSection = ({ t }: { t: Content["exp"] }) => {
                 <p className="font-mono text-[12.5px] tracking-wide text-muted">{e.period}</p>
               </div>
               <div>
-                <h3 className="font-serif text-[26px] leading-tight mb-1">{e.role}</h3>
+                <h3 className="font-serif text-[26px] leading-tight tracking-[-0.01em] mb-1">{e.role}</h3>
                 <p className="text-[14.5px] mb-4">
                   <span className="text-gold">{e.org}</span>
                   <span className="text-faint"> - {e.place}</span>

@@ -7,7 +7,7 @@ export const AboutSection = ({ t }: { t: Content["about"] }) => {
       <div className="container py-20 lg:py-[88px]">
         <SectionHeader num="01" title={t.title} />
         <div className="reveal grid gap-14 lg:grid-cols-[1fr_1.4fr] mb-16">
-          <p className="font-serif text-3xl leading-[1.3] text-cream">{t.lede}</p>
+          <p className="font-serif text-3xl leading-[1.25] tracking-[-0.015em] text-cream">{t.lede}</p>
           <div className="flex flex-col text-base leading-[1.7] text-muted">
             <p>{t.body1}</p>
             <p className="mt-4">{t.body2}</p>

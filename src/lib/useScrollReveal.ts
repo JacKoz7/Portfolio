@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Lang } from "./content";
 
 // Fades every element carrying the .reveal class in once it scrolls into view.
+// With reduced motion the CSS drops the slide and keeps only a short cross-fade.
 // Uses IntersectionObserver rather than CSS scroll-driven animations, which
 // are still unsupported in a fair share of browsers.
 export function useScrollReveal(lang: Lang) {
@@ -12,11 +13,6 @@ export function useScrollReveal(lang: Lang) {
       document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)")
     );
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      targets.forEach((el) => el.classList.add("is-visible"));
-      return;
-    }
-
     const observer = new IntersectionObserver(
       (entries) => {
         // Stagger elements entering together so grids cascade instead of
@@ -25,8 +21,10 @@ export function useScrollReveal(lang: Lang) {
           .filter((entry) => entry.isIntersecting)
           .forEach((entry, i) => {
             const el = entry.target as HTMLElement;
-            el.style.transitionDelay = `${Math.min(i, 5) * 70}ms`;
+            el.style.transitionDelay = `${Math.min(i, 4) * 60}ms`;
             el.classList.add("is-visible");
+            // Drop the stagger once revealed, or it would delay every later transition
+            el.addEventListener("transitionend", () => (el.style.transitionDelay = ""), { once: true });
             observer.unobserve(el);
           });
       },
