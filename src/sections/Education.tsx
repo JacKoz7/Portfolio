@@ -21,7 +21,7 @@ export const EducationSection = ({ t }: { t: Content["edu"] }) => {
             <div className="mt-7 grid items-start gap-12 md:grid-cols-[1fr_auto] md:gap-10">
               <div>
                 <div className="bg-card border border-line px-5 py-4 flex items-baseline gap-3.5">
-                  <span className="font-serif text-xl text-gold">2×</span>
+                  <span className="font-serif text-xl text-gold">3×</span>
                   <span className="text-sm leading-normal text-muted">{t.award}</span>
                 </div>
                 <div className="mt-7">

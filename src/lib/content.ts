@@ -115,7 +115,7 @@ export const content: Record<Lang, Content> = {
         { period: "Feb 2026 - present", name: "MSc Eng, Computer Science", detail: "Specialization: Artificial Intelligence Engineering - Lublin University of Technology" },
         { period: "Oct 2022 - Feb 2026", name: "BEng, Computer Science - 5.0", detail: "Specialization: Software Engineering - Lublin University of Technology" },
       ],
-      award: "Rector's Scholarship for academic excellence - two consecutive years",
+      award: "Rector's Scholarship for academic excellence",
       certsTitle: "CERTIFICATES",
       certs: [
         { name: "The AI Engineer Course 2026: Complete AI Engineer Bootcamp", org: "Udemy", date: "2026" },
@@ -190,7 +190,7 @@ export const content: Record<Lang, Content> = {
         { period: "Lut 2026 - obecnie", name: "Magister inżynier, Informatyka", detail: "Specjalizacja: inżynieria sztucznej inteligencji - Politechnika Lubelska" },
         { period: "Paź 2022 - Lut 2026", name: "Inżynier, Informatyka - 5.0", detail: "Specjalizacja: inżynieria oprogramowania - Politechnika Lubelska" },
       ],
-      award: "Stypendium Rektora za wybitne wyniki w nauce - dwa lata z rzędu",
+      award: "Stypendium Rektora za wybitne wyniki w nauce",
       certsTitle: "CERTYFIKATY",
       certs: [
         { name: "The AI Engineer Course 2026: Complete AI Engineer Bootcamp", org: "Udemy", date: "2026" },
@@ -265,7 +265,7 @@ export const content: Record<Lang, Content> = {
         { period: "Févr. 2026 - aujourd'hui", name: "Master d'ingénieur, Informatique", detail: "Spécialisation : ingénierie de l'intelligence artificielle - Université de technologie de Lublin" },
         { period: "Oct. 2022 - Févr. 2026", name: "Diplôme d'ingénieur, Informatique - 5.0", detail: "Spécialisation : génie logiciel - Université de technologie de Lublin" },
       ],
-      award: "Bourse du Recteur pour l'excellence académique - deux années consécutives",
+      award: "Bourse du Recteur pour l'excellence académique",
       certsTitle: "CERTIFICATS",
       certs: [
         { name: "The AI Engineer Course 2026: Complete AI Engineer Bootcamp", org: "Udemy", date: "2026" },
