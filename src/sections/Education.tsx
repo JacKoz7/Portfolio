@@ -21,6 +21,10 @@ export const EducationSection = ({ t }: { t: Content["edu"] }) => {
               <span className="font-serif text-xl text-gold">2×</span>
               <span className="text-sm leading-normal text-muted">{t.award}</span>
             </div>
+            <div className="mt-7">
+              <p className="font-mono text-xs tracking-[0.14em] text-gold mb-3.5">{t.langsTitle}</p>
+              <p className="text-[14.5px] text-muted leading-[1.7]">{t.langs}</p>
+            </div>
           </div>
           <div>
             <p className="font-mono text-xs tracking-[0.14em] text-gold mb-5">{t.certsTitle}</p>
@@ -37,10 +41,6 @@ export const EducationSection = ({ t }: { t: Content["edu"] }) => {
                   <p className="font-mono text-xs text-faint">{c.date}</p>
                 </div>
               ))}
-            </div>
-            <div className="mt-7">
-              <p className="font-mono text-xs tracking-[0.14em] text-gold mb-3.5">{t.langsTitle}</p>
-              <p className="text-[14.5px] text-muted leading-[1.7]">{t.langs}</p>
             </div>
           </div>
         </div>

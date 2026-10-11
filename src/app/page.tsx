@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { content, Lang } from "@/lib/content";
+import { content, Lang, LANGS } from "@/lib/content";
 import { useScrollReveal } from "@/lib/useScrollReveal";
 import { Header } from "@/sections/Header";
 import { HeroSection } from "@/sections/Hero";
@@ -17,11 +17,10 @@ export default function Home() {
 
   useEffect(() => {
     const saved = localStorage.getItem("lang");
-    if (saved === "en" || saved === "pl") setLang(saved);
+    if (LANGS.includes(saved as Lang)) setLang(saved as Lang);
   }, []);
 
-  const toggleLang = () => {
-    const next: Lang = lang === "en" ? "pl" : "en";
+  const changeLang = (next: Lang) => {
     setLang(next);
     localStorage.setItem("lang", next);
   };
@@ -32,7 +31,7 @@ export default function Home() {
 
   return (
     <div>
-      <Header nav={t.nav} otherLang={lang === "en" ? "PL" : "EN"} onToggle={toggleLang} />
+      <Header nav={t.nav} lang={lang} onChange={changeLang} />
       <HeroSection t={t.hero} />
       <AboutSection t={t.about} />
       <ProjectsSection t={t.proj} />

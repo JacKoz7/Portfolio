@@ -8,12 +8,11 @@ export const HeroSection = ({ t }: { t: Content["hero"] }) => {
       <div className="absolute inset-0 pointer-events-none [background-image:repeating-linear-gradient(90deg,rgba(236,231,220,0.025)_0_1px,transparent_1px_96px)]" />
       <div className="container relative grid items-center gap-16 py-20 md:py-24 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="animate-fade-up">
-          <p className="font-mono text-[12.5px] tracking-[0.18em] text-gold mb-6">{t.kicker}</p>
           <h1 className="font-serif text-[44px] md:text-6xl lg:text-[68px] leading-[1.06] mb-6">
             {t.title1} <span className="text-gold">{t.titleEm}</span>
           </h1>
           <p className="text-[17.5px] leading-relaxed text-muted max-w-[540px] mb-9">{t.sub}</p>
-          <div className="flex flex-wrap gap-3.5 mb-12">
+          <div className="flex flex-wrap gap-3.5">
             <a
               href="#projects"
               className="font-mono text-[13px] tracking-wider font-medium bg-gold text-ink px-6 py-3 rounded-full hover:bg-gold-light transition-all hover:-translate-y-0.5"
@@ -28,14 +27,6 @@ export const HeroSection = ({ t }: { t: Content["hero"] }) => {
               {t.cta2}
             </a>
           </div>
-          <div className="flex border-t border-line pt-6">
-            {t.facts.map((f) => (
-              <div key={f.l} className="pr-9 mr-9 border-r border-line last:border-r-0 last:mr-0 last:pr-0">
-                <div className="font-serif text-3xl text-gold leading-none">{f.v}</div>
-                <div className="font-mono text-[11px] tracking-wider text-muted mt-2">{f.l}</div>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="relative justify-self-center lg:justify-self-end animate-fade-up [animation-delay:150ms]">
           <div className="absolute top-[18px] left-[18px] -right-[18px] -bottom-[18px] border border-gold/45 pointer-events-none" />
@@ -43,7 +34,7 @@ export const HeroSection = ({ t }: { t: Content["hero"] }) => {
             src="/portrait.webp"
             alt="Jacek Kozłowski"
             width={400}
-            height={507}
+            height={500}
             priority
             className="block w-full max-w-[400px] aspect-[3/3.8] object-cover object-[50%_28%] border border-line saturate-[0.95] transition-transform duration-700 hover:scale-[1.02]"
           />

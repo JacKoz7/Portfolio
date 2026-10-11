@@ -14,11 +14,6 @@ export const ExperienceSection = ({ t }: { t: Content["exp"] }) => {
             >
               <div>
                 <p className="font-mono text-[12.5px] tracking-wide text-muted">{e.period}</p>
-                {e.badge && (
-                  <span className="inline-block mt-2.5 font-mono text-[10.5px] tracking-[0.12em] uppercase bg-gold/15 text-gold border border-gold/40 rounded-full px-3 py-1">
-                    {e.badge}
-                  </span>
-                )}
               </div>
               <div>
                 <h3 className="font-serif text-[26px] leading-tight mb-1">{e.role}</h3>
