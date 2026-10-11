@@ -1,0 +1,27 @@
+# Jacek Kozłowski
+
+> AI engineer and fullstack developer from Lublin, Poland. Computer science engineer specializing in AI engineering - machine learning, deep learning, NLP and vector search - grounded in real-world fullstack and mobile development. Currently an AI Engineer (Schuman Trainee) at the European Parliament in Brussels.
+
+## Profile
+
+- Current role: AI Engineer - Schuman Trainee, European Parliament, Brussels, Belgium (Oct 2026 - present). Five-month traineeship in the AI team of the Website Management Unit, DG Communication, working on a RAG-based assistant that answers natural-language questions over survey documents with verifiable sources. Python, Amazon Bedrock, Qdrant, GitLab CI/CD.
+- Previous: Mobile Application Developer at diagno6, Wrocław, Poland (Jul 2025 - Oct 2026). Shipped a health-analysis app to iOS, Android and the web from one React Native / Expo codebase, owned the release pipeline (fastlane, GitHub Actions, TestFlight, App Store, Google Play).
+- Previous: Fullstack Developer apprenticeship at Transition Technologies MS, Lublin, Poland (Jul 2025). .NET (C#) and Angular.
+- Education: MSc Eng in Computer Science, specialization Artificial Intelligence Engineering, Lublin University of Technology (Feb 2026 - present). BEng in Computer Science, specialization Software Engineering, Lublin University of Technology (Oct 2022 - Feb 2026), final grade 5.0. Rector's Scholarship for academic excellence two years in a row.
+- Languages: Polish (native), English (C1), German (B1), French (learning).
+- Skills: machine learning, deep learning (PyTorch, TensorFlow), LLMs and prompt engineering, NLP with transformers, vector databases and RAG, recommender systems, fuzzy and interpretable systems (XAI), Python, TypeScript, Next.js, React, React Native / Expo, FastAPI, PostgreSQL, Firebase, AWS (Amazon Bedrock), Qdrant, Docker.
+
+## Selected projects
+
+- [Fuzzy Sleep Apnea Detector](https://github.com/JacKoz7/fuzzy-sleep-apnea-detector): hybrid fuzzy expert system detecting sleep apnea from raw ECG; four calibrated ML models feed a fuzzy inference engine. AUC 0.822 on 35 unseen patients (PhysioNet Apnea-ECG).
+- [LightGCN Recommender](https://github.com/JacKoz7/LightGCN-Recommender): from-scratch PyTorch implementation of LightGCN (SIGIR 2020) trained on Gowalla; Recall@20 = 0.1773, 97.3% of the paper's result.
+- [Percipio](https://github.com/percipio-hq/percipio-web): end-to-end IoT room-awareness system - ESP32 mmWave radar firmware, Firestore and a live Next.js dashboard.
+- [PetStayTion API](https://github.com/JacKoz7/PetStayTion-API): documented (Swagger / OpenAPI), containerized backend for a pet-care platform.
+
+## Links
+
+- [Portfolio](https://www.jacekkozlowski.com/): this site, in English, Polish and French
+- [CV (PDF)](https://www.jacekkozlowski.com/Jacek_Kozlowski_AI_Engineer_CV.pdf)
+- [GitHub](https://github.com/JacKoz7)
+- [LinkedIn](https://www.linkedin.com/in/jacek-kozlowski1/)
+- Email: jacek.kozlovski@gmail.com

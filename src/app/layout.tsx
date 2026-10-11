@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./fonts.css";
 import "./globals.css";
+import { SITE_URL, structuredData } from "@/lib/structuredData";
 
 // Basic-latin files used above the fold; latin-ext loads on demand
 const PRELOAD_FONTS = [
@@ -9,18 +10,18 @@ const PRELOAD_FONTS = [
   "/fonts/ibm-plex-mono-400-latin.woff2",
 ];
 
-const siteUrl = "https://www.jacekkozlowski.com";
 const siteTitle = "Jacek Kozłowski Portfolio";
 const siteDescription =
   "AI engineer and fullstack developer - machine learning, deep learning, NLP and vector search, grounded in real-world product engineering.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: "/" },
   title: siteTitle,
   description: siteDescription,
   openGraph: {
     type: "website",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: siteTitle,
     title: siteTitle,
     description: siteDescription,
@@ -50,6 +51,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }}
+        />
         {PRELOAD_FONTS.map((href) => (
           <link key={href} rel="preload" href={href} as="font" type="font/woff2" crossOrigin="anonymous" />
         ))}
